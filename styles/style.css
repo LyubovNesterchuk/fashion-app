@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #1f77b4;
+}
+
+.stButton > button {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.stMetric {
+    text-align: center;
+}
+
+.stDataFrame {
+    border-radius: 8px;
+}
+
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
