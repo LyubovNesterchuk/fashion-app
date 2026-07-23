@@ -30,6 +30,10 @@
 Fashion_App/
 │
 ├── app.py
+├── config.py
+├── components/
+├── utils/
+├── example_images/
 ├── models/
 ├── history/
 ├── styles/
