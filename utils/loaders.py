@@ -4,10 +4,12 @@ import streamlit as st
 from tensorflow.keras.models import load_model
 
 from utils.download_model import download_vgg_model
+from pathlib import Path
 
-vgg_path = download_vgg_model()
+vgg_path = Path(download_vgg_model())
+# vgg_path = download_vgg_model()
 
-vgg_model = load_model(vgg_path)
+# vgg_model = load_model(vgg_path)
 
 from config import (
     CNN_HISTORY,
@@ -18,24 +20,34 @@ from config import (
 )
 
 
+# @st.cache_resource(show_spinner=False)
+# def load_model_by_name(model_name: str):
+#     """
+#     Завантаження нейронної мережі.
+#     """
+
+#     if model_name == "CNN":
+#         path = CNN_MODEL
+#     else:
+#         # path = VGG_MODEL
+#         path =vgg_model
+#     if not path.exists():
+#         raise FileNotFoundError(
+#             f"Модель не знайдена:\n{path}"
+#         )
+
+#     return load_model(path)
 @st.cache_resource(show_spinner=False)
 def load_model_by_name(model_name: str):
-    """
-    Завантаження нейронної мережі.
-    """
-
     if model_name == "CNN":
         path = CNN_MODEL
     else:
-        # path = VGG_MODEL
-        path =vgg_model
+        path = vgg_path
+
     if not path.exists():
-        raise FileNotFoundError(
-            f"Модель не знайдена:\n{path}"
-        )
+        raise FileNotFoundError(f"Модель не знайдена:\n{path}")
 
     return load_model(path)
-
 
 @st.cache_data(show_spinner=False)
 def load_history(model_name: str):
