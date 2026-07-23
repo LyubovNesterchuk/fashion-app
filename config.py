@@ -23,22 +23,31 @@ VGG_SIZE = 96
 
 
 CLASS_NAMES = [
-    "👕 T-shirt/top",
-    "👖 Trouser",
-    "🧥 Pullover",
+    "🥾 Ankle boot",
+    "👜 Bag",
     "👗 Dress",
-    "🧥 Coat",
+    "🧥 Coat", 
+    "🧥 Pullover",
     "👡 Sandal",
     "👔 Shirt",
     "👟 Sneaker",
-    "👜 Bag",
-    "🥾 Ankle boot",
+    "👕 T-shirt/top",
+    "👖 Trouser",   
+    
 ]
 
 EXAMPLES = [
     "Немає",
-    "tshirt.png",
-    "sneaker.png",
+    "ankle_boot.png",
     "bag.png",
+    "bag2.png",
+    "coat.png",
     "dress.png",
+    "pullover.png", 
+    "sandal.png",
+    "shirt.png",
+    "sneaker.png",
+    "top.png",
+    "trouser.png",
+    "tshirt.png", 
 ]

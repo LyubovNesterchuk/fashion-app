@@ -6,11 +6,6 @@ from tensorflow.keras.models import load_model
 from utils.download_model import download_vgg_model
 from pathlib import Path
 
-vgg_path = Path(download_vgg_model())
-# vgg_path = download_vgg_model()
-
-# vgg_model = load_model(vgg_path)
-
 from config import (
     CNN_HISTORY,
     CNN_MODEL,
@@ -18,30 +13,14 @@ from config import (
     VGG_HISTORY,
     # VGG_MODEL,
 )
+vgg_path = Path(download_vgg_model())
 
-
-# @st.cache_resource(show_spinner=False)
-# def load_model_by_name(model_name: str):
-#     """
-#     Завантаження нейронної мережі.
-#     """
-
-#     if model_name == "CNN":
-#         path = CNN_MODEL
-#     else:
-#         # path = VGG_MODEL
-#         path =vgg_model
-#     if not path.exists():
-#         raise FileNotFoundError(
-#             f"Модель не знайдена:\n{path}"
-#         )
-
-#     return load_model(path)
 @st.cache_resource(show_spinner=False)
 def load_model_by_name(model_name: str):
     if model_name == "CNN":
         path = CNN_MODEL
     else:
+        # path = VGG_MODEL
         path = vgg_path
 
     if not path.exists():
@@ -49,11 +28,9 @@ def load_model_by_name(model_name: str):
 
     return load_model(path)
 
+
 @st.cache_data(show_spinner=False)
 def load_history(model_name: str):
-    """
-    Завантаження history моделі.
-    """
 
     if model_name == "CNN":
         path = CNN_HISTORY
@@ -72,10 +49,6 @@ def load_history(model_name: str):
 
 
 def load_css():
-    """
-    Підключення CSS.
-    """
-
     if not STYLE_FILE.exists():
         return
 

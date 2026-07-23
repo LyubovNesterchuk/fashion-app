@@ -43,15 +43,13 @@ st.write(
 """
 )
 
-# --------------------------------------------------
+
 # Sidebar
-# --------------------------------------------------
 
 selected_model, example = sidebar()
 
-# --------------------------------------------------
+
 # Load model
-# --------------------------------------------------
 
 with st.spinner("Завантаження моделі..."):
 
@@ -59,9 +57,8 @@ with st.spinner("Завантаження моделі..."):
 
     history = load_history(selected_model)
 
-# --------------------------------------------------
+
 # Upload image
-# --------------------------------------------------
 
 image = upload_image(example)
 
@@ -71,9 +68,8 @@ if image is None:
 
     st.stop()
 
-# --------------------------------------------------
+
 # Display
-# --------------------------------------------------
 
 left, right = st.columns(2)
 
@@ -94,9 +90,8 @@ with right:
         selected_model,
     )
 
-# --------------------------------------------------
+
 # Prediction
-# --------------------------------------------------
 
 with st.spinner("Класифікація..."):
 
@@ -153,8 +148,7 @@ history_charts(history)
 # -rw-r--r-- 1 Admin 197121 5.6M Jul 22 14:25 fashion_mnist_cnn.keras
 # -rw-r--r-- 1 Admin 197121 116M Jul 22 18:50 fashion_mnist_vgg16.keras
 
-# GitHub не дозволяє завантажувати файли більші за 100 MB. У вас:
-# fashion_mnist_cnn.keras — 5.6 MB (нормально)
+# GitHub не дозволяє завантажувати файли більші за 100 MB. 
 # fashion_mnist_vgg16.keras — 116 MB (перевищує ліміт)
 # тому видали файл з Git (але залиш його на комп'ютері)
 # git rm --cached models/fashion_mnist_vgg16.keras
@@ -164,3 +158,6 @@ history_charts(history)
 # git add .gitignore
 # git commit --amend --no-edit
 # git push -u origin main
+
+# рішення для розгортання на Streamlit Community Cloud, щоб
+# застосунок автоматично завантажував VGG16 з Hugging Face без будь-яких додаткових дій користувача

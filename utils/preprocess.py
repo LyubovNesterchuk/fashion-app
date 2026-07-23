@@ -5,10 +5,9 @@ from tensorflow.keras.applications.vgg16 import preprocess_input
 from config import CNN_SIZE, VGG_SIZE
 
 
+# Підготовка зображення
+
 def preprocess_for_cnn(image):
-    """
-    Підготовка зображення для CNN.
-    """
 
     image = image.convert("L")
 
@@ -33,10 +32,8 @@ def preprocess_for_cnn(image):
     return image
 
 
+
 def preprocess_for_vgg(image):
-    """
-    Підготовка зображення для VGG16.
-    """
 
     image = image.convert("RGB")
 
@@ -59,11 +56,10 @@ def preprocess_for_vgg(image):
     return image
 
 
-def preprocess_image(image, model_name):
-    """
-    Автоматичний вибір препроцесингу.
-    """
+# Автоматичний вибір препроцесингу.
 
+def preprocess_image(image, model_name):
+  
     if model_name == "CNN":
         return preprocess_for_cnn(image)
 
