@@ -19,13 +19,15 @@ def sidebar():
             "tshirt.png",
             "sneaker.png",
             "bag.png",
+            "bag2.png",
             "dress.png",   
             "trouser.png",
             "pullover.png",
             "coat.png",
             "sandal.png",
             "shirt.png",
-            "ankle_boot.png"
+            "ankle_boot.png",
+            "top.png",
         ],
     )
 
