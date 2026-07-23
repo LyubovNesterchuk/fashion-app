@@ -3,12 +3,18 @@ import pickle
 import streamlit as st
 from tensorflow.keras.models import load_model
 
+from utils.download_model import download_vgg_model
+
+vgg_path = download_vgg_model()
+
+vgg_model = load_model(vgg_path)
+
 from config import (
     CNN_HISTORY,
     CNN_MODEL,
     STYLE_FILE,
     VGG_HISTORY,
-    VGG_MODEL,
+    # VGG_MODEL,
 )
 
 
@@ -21,8 +27,8 @@ def load_model_by_name(model_name: str):
     if model_name == "CNN":
         path = CNN_MODEL
     else:
-        path = VGG_MODEL
-
+        # path = VGG_MODEL
+        path =vgg_model
     if not path.exists():
         raise FileNotFoundError(
             f"Модель не знайдена:\n{path}"
