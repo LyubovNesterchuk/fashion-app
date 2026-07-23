@@ -94,7 +94,9 @@ streamlit run app.py
 - Pillow
 
 ---
+# Застосунок розгорнуто на Streamlit Community Cloud
+https://fashion-app-jq6um8lvzapidvnclwspgq.streamlit.app/
 
-## Автор
+# Автор
 
 Lyubov Nesterchuk
